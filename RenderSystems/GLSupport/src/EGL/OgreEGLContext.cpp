@@ -119,13 +119,8 @@ namespace Ogre {
 
     void EGLContext::setCurrent()
     {
-        EGLBoolean ret = eglMakeCurrent(mEglDisplay,
-                                        mDrawable, mDrawable, mContext);
+        eglMakeCurrent(mEglDisplay, mDrawable, mDrawable, mContext);
         EGL_CHECK_ERROR
-        if (!ret)
-        {
-            OGRE_EXCEPT(Exception::ERR_RENDERINGAPI_ERROR, "Fail to make context current");
-        }
     }
 
     void EGLContext::endCurrent()
